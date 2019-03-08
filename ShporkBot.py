@@ -5,6 +5,7 @@ class ShporkBot(commands.Bot):
     def __init__(self):
 
         self.color = 0x26b73e
+        self.token = open("token.ini", "r").read()
 
         super().__init__(command_prefix="!", case_insensitive=True)
 
@@ -24,7 +25,7 @@ class ShporkBot(commands.Bot):
 
                 print(f"Модуль {ext} успешно загружен!")
 
-        super().run(open("token.ini", "r").read())
+        super().run(self.token)
 
     async def on_ready(self):
 
