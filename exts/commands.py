@@ -6,6 +6,7 @@ class Команды(commands.Cog):
     def __init__(self, bot):
 
         self.bot = bot
+        self.shpork_vid = "https://www.youtube.com/watch?v=0xv688_SImw"
 
     def __repr__(self):
         return "Команды"
@@ -23,6 +24,13 @@ class Команды(commands.Cog):
         embed.set_image(url=target.avatar_url)
 
         await ctx.send(embed=embed)
+        
+    @commands.command(aliases=("шперк", "шпірк"))
+    async def шперк(self, ctx):
+        
+        await ctx.send(
+            self.shpork_vid
+        )
 
 def setup(bot):
     bot.add_cog(Команды(bot))
