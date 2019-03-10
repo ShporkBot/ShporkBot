@@ -26,10 +26,28 @@ class Команды(commands.Cog):
         await ctx.send(embed=embed)
         
     @commands.command(aliases=("шперк", "шпірк"))
-    async def шперк(self, ctx):
+    async def шпорк(self, ctx):
         
         await ctx.send(
             self.shpork_vid
+        )
+        
+        
+    @commands.command(name="на чём")
+    async def начём(self, ctx, member: discord.Member = None):
+        
+        """ Что сейчас использует человек? """
+        
+        member = member or ctx.author
+        
+        if member.is_on_mobile():
+
+            return await ctx.send(
+                f"Шпорк думать, что **{member.name}** сейчас использует :iphone:"
+            )
+        
+        await ctx.send(
+            f"Шпорк думать, что **{member.name}** сейчас использует :computer:"
         )
 
 def setup(bot):
